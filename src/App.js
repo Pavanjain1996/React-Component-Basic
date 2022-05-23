@@ -42,7 +42,7 @@ function App() {
   return (
     <>
       <Router>
-        <Route><Header title="My Todo List" searchBar={false} /></Route>
+        <Header title="My Todo List" searchBar={false} />
         <Switch>
           <Route exact path="/" render={() => {
             return <Todos todos={todos} onDelete={onDelete} addTodo={addTodo} />
