@@ -2,24 +2,30 @@ import './App.css';
 import Header from './MyComponents/Header'
 import Todos from './MyComponents/Todos'
 import Footer from './MyComponents/Footer'
-import React, {useEffect, useState} from 'react';
+import About from './MyComponents/About'
+import React, { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   let initTodo;
-  if(localStorage.getItem("todos") === null){
+  if (localStorage.getItem("todos") === null) {
     initTodo = []
   }
-  else{
+  else {
     initTodo = JSON.parse(localStorage.getItem("todos"))
   }
   const onDelete = (todo) => {
     setTodos(todos.filter((e) => {
-      return e!==todo;
+      return e !== todo;
     }));
   }
 
   const addTodo = (task, desc) => {
-    let sno = todos.length ? todos[todos.length-1].sno + 1 : 1
+    let sno = todos.length ? todos[todos.length - 1].sno + 1 : 1
     const myTodo = {
       sno: sno,
       task: task,
@@ -35,9 +41,18 @@ function App() {
 
   return (
     <>
-      <Header title="My Todo List" searchBar={false}/>
-      <Todos todos={todos} onDelete={onDelete} addTodo={addTodo}/>
-      <Footer />
+      <Router>
+        <Route><Header title="My Todo List" searchBar={false} /></Route>
+        <Switch>
+          <Route exact path="/" render={() => {
+            return <Todos todos={todos} onDelete={onDelete} addTodo={addTodo} />
+          }}></Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
     </>
   );
 }
