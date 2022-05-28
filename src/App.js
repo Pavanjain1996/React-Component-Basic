@@ -3,6 +3,8 @@ import Header from './MyComponents/Header'
 import Todos from './MyComponents/Todos'
 import Footer from './MyComponents/Footer'
 import About from './MyComponents/About'
+import Increment from './MyComponents/Increment'
+import TitleChange from './MyComponents/TitleChange';
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -51,6 +53,8 @@ function App() {
             <About />
           </Route>
         </Switch>
+        <Increment />
+        <TitleChange />
         <Footer />
       </Router>
     </>
