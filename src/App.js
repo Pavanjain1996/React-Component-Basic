@@ -7,11 +7,7 @@ import Increment from './MyComponents/Increment'
 import TitleChange from './MyComponents/TitleChange';
 import NumberGame from './MyComponents/NumberGame';
 import React, { useEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   let initTodo;
@@ -44,21 +40,15 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Header title="My Todo List" searchBar={false} />
-        <Switch>
-          <Route exact path="/" render={() => {
-            return <Todos todos={todos} onDelete={onDelete} addTodo={addTodo} />
-          }}></Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-        </Switch>
-        <Increment />
-        <TitleChange />
-        <NumberGame />
-        <Footer />
-      </Router>
+      <Header title="Don't React" searchBar={false} />
+      <Routes>
+        <Route path='/' element={<About />} />
+        <Route path='/todoApplication' element={<Todos todos={todos} onDelete={onDelete} addTodo={addTodo} />} />
+        <Route path='/numberIncrementor' element={<Increment />} />
+        <Route path='/textCopier' element={<TitleChange />} />
+        <Route path='/numberGame' element={<NumberGame />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
