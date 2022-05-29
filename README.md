@@ -1,4 +1,9 @@
-A sample react todo application
+A sample react application
+
+-> Todo Application
+-> Number Incrementor
+-> Text Copier
+-> Number Game
 
 -- Pavan Jain
 -- 013pavanjain@gmail.com
