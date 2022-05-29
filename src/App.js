@@ -5,6 +5,7 @@ import Footer from './MyComponents/Footer'
 import About from './MyComponents/About'
 import Increment from './MyComponents/Increment'
 import TitleChange from './MyComponents/TitleChange';
+import NumberGame from './MyComponents/NumberGame';
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -55,6 +56,7 @@ function App() {
         </Switch>
         <Increment />
         <TitleChange />
+        <NumberGame />
         <Footer />
       </Router>
     </>
